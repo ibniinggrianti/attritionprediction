@@ -192,7 +192,7 @@ with st.expander('Statistics by Job'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["BusinessTravel"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(5, 6))
+            fig, ax = plt.subplots(figsize=(5, 4))
             sns.barplot(
                 x=value_2.index, 
                 y=value_2.values, 
@@ -239,7 +239,7 @@ with st.expander('Statistics by Job'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["RelationshipSatisfaction"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(5, 6))
+            fig, ax = plt.subplots(figsize=(5, 4))
             sns.barplot(x=value_2.index, y=value_2.values, order=value_2.index, palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], ax=ax)
             #ax.set_title("Attrition Rate by Relationship Satisfaction", fontweight="black", size=20, pad=20)
 
