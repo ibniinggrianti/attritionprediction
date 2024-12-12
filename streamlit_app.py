@@ -170,7 +170,7 @@ with st.expander('Statistics by Employee Detail'):
         with col1:
             st.info("### Employees by Department")
             value_1 = data["Department"].value_counts()
-            fig, ax = plt.subplots(figsize=(6, 4))
+            fig, ax = plt.subplots(figsize=(6, 5))
             sns.barplot(
                 x=value_1.index, 
                 y=value_1.values, 
@@ -189,7 +189,7 @@ with st.expander('Statistics by Employee Detail'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["Department"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(6, 4))
+            fig, ax = plt.subplots(figsize=(6, 5))
             sns.barplot(
                 x=value_2.index, 
                 y=value_2.values, 
