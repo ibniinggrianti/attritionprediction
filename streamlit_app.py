@@ -732,15 +732,7 @@ with st.sidebar:
   st.markdown(f"Your selected options: {selection}.")
   
   options = ["Low", "Medium", "High", "Very High"]
-  selection = st.pills("Environment Satisfaction", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
-  
-  options = ["Low", "Medium", "High", "Very High"]
   selection = st.pills("Job Satisfaction", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
-  
-  options = ["Low", "Medium", "High", "Very High"]
-  selection = st.pills("Relationship Satisfaction", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
   
   options = ["Yes", "No"]
