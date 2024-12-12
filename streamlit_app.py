@@ -486,7 +486,8 @@ with st.expander('Statistics by Job'):
             st.pyplot(fig)
     else:
         st.info("Please upload a CSV file to start the analysis.")
-    if "JobSatisfaction" in data.columns and "Attrition" in data.columns:
+    
+  if "JobSatisfaction" in data.columns and "Attrition" in data.columns:
     # Create two columns for side-by-side plots
     col1, col2 = st.columns(2)
 
