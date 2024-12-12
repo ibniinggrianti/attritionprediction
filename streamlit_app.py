@@ -618,7 +618,7 @@ with st.expander('Statistics by Job'):
             # Visualization for Employees by PerformanceRating (Pie chart)
             with col1:
                 st.info("### Employees by PerformanceRating")
-                fig, ax = plt.subplots(figsize=(3, 3))
+                fig, ax = plt.subplots(figsize=(4, 4))
                 value_1 = data["PerformanceRating"].value_counts()
                 ax.pie(
                     value_1.values,
@@ -652,46 +652,46 @@ with st.expander('Statistics by Job'):
     else:
         st.info("Please upload a CSV file to start the analysis.")
 
-if "WorkLifeBalance" in data.columns and "Attrition" in data.columns:
-    # Create two columns for side-by-side plots
-    col1, col2 = st.columns(2)
-
-    # Visualization for Employees by WorkLifeBalance (Pie chart)
-    with col1:
-        st.info("### Employees by WorkLifeBalance")
-        fig, ax = plt.subplots(figsize=(6, 6))
-        value_1 = data["WorkLifeBalance"].value_counts()
-        ax.pie(
-            value_1.values,
-            labels=value_1.index,
-            autopct="%.1f%%",
-            pctdistance=0.75,
-            startangle=90,
-            colors=['#FF8000', '#FF9933', '#FFB366', '#FFCC99'],
-            textprops={"fontweight": "black", "size": 15}
-        )
-        # Add a white circle at the center to make it a donut chart
-        center_circle = plt.Circle((0, 0), 0.4, fc='white')
-        fig.gca().add_artist(center_circle)
-        st.pyplot(fig)
-
-    # Visualization for Attrition Rate by WorkLifeBalance (Bar plot)
-    with col2:
-        st.info("### Attrition Rate by WorkLifeBalance")
-        new_df = data[data["Attrition"] == "Yes"]
-        value_2 = new_df["WorkLifeBalance"].value_counts()
-        attrition_rate = np.floor((value_2 / value_1) * 100).values
-        fig, ax = plt.subplots(figsize=(5, 4))
-        sns.barplot(x=value_2.index.tolist(), y=value_2.values, order=value_2.index, palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], ax=ax)
-
-        # Add text annotations for each bar
-        for index, value in enumerate(value_2.values):
-            ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", fontweight="black", size=15)
-        
-        st.pyplot(fig)
-
-else:
-    st.info("Please upload a CSV file to start the analysis.")
+    if "WorkLifeBalance" in data.columns and "Attrition" in data.columns:
+        # Create two columns for side-by-side plots
+        col1, col2 = st.columns(2)
+    
+        # Visualization for Employees by WorkLifeBalance (Pie chart)
+        with col1:
+            st.info("### Employees by WorkLifeBalance")
+            fig, ax = plt.subplots(figsize=(6, 6))
+            value_1 = data["WorkLifeBalance"].value_counts()
+            ax.pie(
+                value_1.values,
+                labels=value_1.index,
+                autopct="%.1f%%",
+                pctdistance=0.75,
+                startangle=90,
+                colors=['#FF8000', '#FF9933', '#FFB366', '#FFCC99'],
+                textprops={"fontweight": "black", "size": 15}
+            )
+            # Add a white circle at the center to make it a donut chart
+            center_circle = plt.Circle((0, 0), 0.4, fc='white')
+            fig.gca().add_artist(center_circle)
+            st.pyplot(fig)
+    
+        # Visualization for Attrition Rate by WorkLifeBalance (Bar plot)
+        with col2:
+            st.info("### Attrition Rate by WorkLifeBalance")
+            new_df = data[data["Attrition"] == "Yes"]
+            value_2 = new_df["WorkLifeBalance"].value_counts()
+            attrition_rate = np.floor((value_2 / value_1) * 100).values
+            fig, ax = plt.subplots(figsize=(5, 4))
+            sns.barplot(x=value_2.index.tolist(), y=value_2.values, order=value_2.index, palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], ax=ax)
+    
+            # Add text annotations for each bar
+            for index, value in enumerate(value_2.values):
+                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", fontweight="black", size=10)
+            
+            st.pyplot(fig)
+    
+    else:
+        st.info("Please upload a CSV file to start the analysis.")
 
       
 
