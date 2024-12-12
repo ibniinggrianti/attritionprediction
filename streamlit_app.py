@@ -526,8 +526,8 @@ with st.expander('Statistics by Job'):
         
         st.pyplot(fig)
 
-    else:
-        st.info("Please upload a CSV file to start the analysis.")
+  else:
+      st.info("Please upload a CSV file to start the analysis.")
 
       
 
