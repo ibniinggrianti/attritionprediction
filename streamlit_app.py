@@ -208,9 +208,9 @@ with st.expander('Statistics by Job'):
             st.pyplot(fig)
 
     else:
-        st.info("Please upload a CSV file to start the analysis.")if "RelationshipSatisfaction" in data.columns and "Attrition" in data.columns:
+        st.info("Please upload a CSV file to start the analysis.")
+      if "RelationshipSatisfaction" in data.columns and "Attrition" in data.columns:
         # Create two columns for side-by-side plots
-    if "BusinessTravel" in data.columns and "Attrition" in data.columns:
       col1, col2 = st.columns(2)
 
         # Visualization for Employees by Relationship Satisfaction (Pie chart)
@@ -248,6 +248,6 @@ with st.expander('Statistics by Job'):
                 ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
             st.pyplot(fig)
 
-    else:
-        st.info("Please upload a CSV file to start the analysis.")
+      else:
+            st.info("Please upload a CSV file to start the analysis.")
 
