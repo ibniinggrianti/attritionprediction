@@ -19,6 +19,7 @@ with st.expander('Data Visualization'):
   st.write("This is detail visualization on every features.")
   # Employee Attrition Counts Visualization
   with st.expander("Employee Attrition Rate"):
+    st.write("Detail visualization.")
               if "Attrition" in data.columns:
                       attrition_rate = data["Attrition"].value_counts()
               
