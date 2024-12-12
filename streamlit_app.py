@@ -20,13 +20,13 @@ if "Attrition" in data.columns:
         st.write("### Employee Attrition Counts")
         attrition_rate = data["Attrition"].value_counts()
 
-        fig, ax = plt.subplots(figsize=(12, 5))
+        fig, ax = plt.subplots(figsize=(5, 5))
         sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
         #ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
 
         # Adding value annotations to the bars
         for i, v in enumerate(attrition_rate.values):
-            ax.text(i, v, v, ha="center", fontweight='black', fontsize=18)
+            ax.text(i, v, v, ha="center", fontweight='black', fontsize=20)
 
         st.pyplot(fig)
 
@@ -37,14 +37,14 @@ if "Attrition" in data.columns:
             attrition_rate, 
             labels=["No", "Yes"], 
             autopct="%.2f%%", 
-            textprops={"fontweight": "black", "size": 15},
+            textprops={"fontweight": "black", "size": 5},
             colors=["#1d7874", "#AC1F29"],
             explode=[0, 0.1], 
             startangle=90
         )
         center_circle = plt.Circle((0, 0), 0.3, fc='white')
         fig.gca().add_artist(center_circle)
-        ax.set_title("Employee Attrition Rate", fontweight="black", size=15, pad=5)
+        #ax.set_title("Employee Attrition Rate", fontweight="black", size=15, pad=5)
 
         st.pyplot(fig)
 
