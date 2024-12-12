@@ -213,7 +213,7 @@ with st.expander('Statistics by Personal Data'):
         with col1:
             st.info("### Employees by Education Field")
             value_1 = data["EducationField"].value_counts()
-            fig, ax = plt.subplots(figsize=(6, 8))
+            fig, ax = plt.subplots(figsize=(6, 5))
             sns.barplot(
                 x=value_1.index, 
                 y=value_1.values, 
@@ -234,7 +234,7 @@ with st.expander('Statistics by Personal Data'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["EducationField"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(6, 8))
+            fig, ax = plt.subplots(figsize=(6, 5))
             sns.barplot(
                 x=value_2.index, 
                 y=value_2.values, 
