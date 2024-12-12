@@ -304,7 +304,7 @@ with st.expander('Statistics by Job'):
         # Visualization for Employees by Business Travel (Pie Chart)
         with col1:
             st.info("### Employees by Business Travel")
-            fig, ax = plt.subplots(figsize=(8, 8))
+            fig, ax = plt.subplots(figsize=(10, 10))
             value_1 = data["BusinessTravel"].value_counts()
             ax.pie(
                 value_1.values,
