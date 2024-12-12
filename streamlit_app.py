@@ -182,7 +182,7 @@ with st.expander('Statistics by Job'):
             # Add a white circle at the center to make it a donut chart
             center_circle = plt.Circle((0, 0), 0.4, fc='white')
             fig.gca().add_artist(center_circle)
-            ax.set_title("Employees by Relationship Satisfaction", fontweight="black", size=20, pad=20)
+            #ax.set_title("Employees by Relationship Satisfaction", fontweight="black", size=20, pad=20)
             st.pyplot(fig)
 
         # Visualization for Attrition Rate by Relationship Satisfaction (Bar plot)
@@ -191,9 +191,9 @@ with st.expander('Statistics by Job'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["RelationshipSatisfaction"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(5, 4))
             sns.barplot(x=value_2.index, y=value_2.values, order=value_2.index, palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], ax=ax)
-            ax.set_title("Attrition Rate by Relationship Satisfaction", fontweight="black", size=20, pad=20)
+            #ax.set_title("Attrition Rate by Relationship Satisfaction", fontweight="black", size=20, pad=20)
 
             # Add text annotations for each bar
             for index, value in enumerate(value_2):
