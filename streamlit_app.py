@@ -486,46 +486,47 @@ with st.expander('Statistics by Job'):
             st.pyplot(fig)
     else:
         st.info("Please upload a CSV file to start the analysis.")
-    if "RelationshipSatisfaction" in data.columns and "Attrition" in data.columns:
-        # Create two columns for side-by-side plots
-        col1, col2 = st.columns(2)
+    if "JobSatisfaction" in data.columns and "Attrition" in data.columns:
+    # Create two columns for side-by-side plots
+    col1, col2 = st.columns(2)
 
-        # Visualization for Employees by Relationship Satisfaction (Pie chart)
-        with col1:
-            st.info("### Employees by Relationship Satisfaction")
-            fig, ax = plt.subplots(figsize=(6, 6))
-            value_1 = data["RelationshipSatisfaction"].value_counts()
-            ax.pie(
-                value_1.values,
-                labels=value_1.index,
-                autopct="%.1f%%",
-                pctdistance=0.75,
-                startangle=90,
-                colors=['#6495ED', '#87CEEB', '#00BFFF', '#1E90FF'],
-                textprops={"fontweight": "black", "size": 15}
-            )
-            # Add a white circle at the center to make it a donut chart
-            center_circle = plt.Circle((0, 0), 0.4, fc='white')
-            fig.gca().add_artist(center_circle)
-            #ax.set_title("Employees by Relationship Satisfaction", fontweight="black", size=20, pad=20)
-            st.pyplot(fig)
+    # Visualization for Employees by Job Satisfaction (Pie chart)
+    with col1:
+        st.info("### Employees by Job Satisfaction")
+        fig, ax = plt.subplots(figsize=(6, 6))
+        value_1 = data["JobSatisfaction"].value_counts()
+        ax.pie(
+            value_1.values,
+            labels=value_1.index,
+            autopct="%.1f%%",
+            pctdistance=0.8,
+            startangle=90,
+            colors=['#FFB300', '#FFC300', '#FFD700', '#FFFF00'],
+            textprops={"fontweight": "black", "size": 15}
+        )
+        # Add a white circle at the center to make it a donut chart
+        center_circle = plt.Circle((0, 0), 0.4, fc='white')
+        fig.gca().add_artist(center_circle)
+        st.pyplot(fig)
 
-        # Visualization for Attrition Rate by Relationship Satisfaction (Bar plot)
-        with col2:
-            st.info("### Attrition Rate by Relationship Satisfaction")
-            new_df = data[data["Attrition"] == "Yes"]
-            value_2 = new_df["RelationshipSatisfaction"].value_counts()
-            attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(5, 4))
-            sns.barplot(x=value_2.index, y=value_2.values, order=value_2.index, palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], ax=ax)
-            #ax.set_title("Attrition Rate by Relationship Satisfaction", fontweight="black", size=20, pad=20)
-
-            # Add text annotations for each bar
-            for index, value in enumerate(value_2):
-                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
-            st.pyplot(fig)
+    # Visualization for Attrition Rate by Job Satisfaction (Bar plot)
+    with col2:
+        st.info("### Attrition Rate by Job Satisfaction")
+        new_df = data[data["Attrition"] == "Yes"]
+        value_2 = new_df["JobSatisfaction"].value_counts()
+        attrition_rate = np.floor((value_2 / value_1) * 100).values
+        fig, ax = plt.subplots(figsize=(5, 4))
+        sns.barplot(x=value_2.index, y=value_2.values, order=value_2.index, 
+                    palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7"], ax=ax)
+        
+        # Add text annotations for each bar
+        for index, value in enumerate(value_2):
+            ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
+        
+        st.pyplot(fig)
 
     else:
         st.info("Please upload a CSV file to start the analysis.")
+
       
 
