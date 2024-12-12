@@ -104,15 +104,15 @@ with st.expander('Data Visualization'):
             st.info("### Employee Distribution by Age")
             fig, ax = plt.subplots(figsize=(6, 6))
             sns.histplot(x="Age", hue="Attrition", data=data, kde=True, palette=["#11264e", "#6faea4"], ax=ax)
-            ax.set_title("Employee Distribution by Age", fontweight="black", size=20, pad=10)
+            #ax.set_title("Employee Distribution by Age", fontweight="black", size=20, pad=10)
             st.pyplot(fig)
 
         # Visualization for Employee Distribution by Age & Attrition
         with col2:
             st.info("### Employee Distribution by Age & Attrition")
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(8, 8))
             sns.boxplot(x="Attrition", y="Age", data=data, palette=["#D4A1E7", "#6faea4"], ax=ax)
-            ax.set_title("Employee Distribution by Age & Attrition", fontweight="black", size=20, pad=10)
+            #ax.set_title("Employee Distribution by Age & Attrition", fontweight="black", size=20, pad=10)
             st.pyplot(fig)
     
     else:
