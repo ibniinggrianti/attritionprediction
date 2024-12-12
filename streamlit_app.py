@@ -578,7 +578,7 @@ with st.expander('Statistics by Job'):
             # Visualization for Employees by OverTime (Pie chart)
             with col1:
                 st.info("### Employees by OverTime")
-                fig, ax = plt.subplots(figsize=(6, 6))
+                fig, ax = plt.subplots(figsize=(4, 4))
                 value_1 = data["OverTime"].value_counts()
                 ax.pie(
                     value_1.values,
@@ -587,7 +587,7 @@ with st.expander('Statistics by Job'):
                     pctdistance=0.75,
                     startangle=90,
                     colors=["#ffb563", "#FFC0CB"],
-                    textprops={"fontweight": "black", "size": 15}
+                    textprops={"fontweight": "black", "size": 10}
                 )
                 # Add a white circle at the center to make it a donut chart
                 center_circle = plt.Circle((0, 0), 0.4, fc='white')
@@ -605,7 +605,7 @@ with st.expander('Statistics by Job'):
                 
                 # Add text annotations for each bar
                 for index, value in enumerate(value_2):
-                    ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=15, fontweight="black")
+                    ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
                 
                 st.pyplot(fig)
 
