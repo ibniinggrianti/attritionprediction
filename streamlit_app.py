@@ -197,7 +197,7 @@ with st.expander('Statistics by Job'):
 
             # Add text annotations for each bar
             for index, value in enumerate(value_2):
-                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=15, fontweight="black")
+                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
             st.pyplot(fig)
 
   else:
