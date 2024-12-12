@@ -86,7 +86,7 @@ with st.expander('Data Visualization'):
             value_2 = new_df["Gender"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
             
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(4, 3))
             sns.barplot(x=value_2.index, y=value_2.values, palette=["#D4A1E7", "#E7A1A1"], ax=ax)
             for index, value in enumerate(value_2):
                 ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", 
