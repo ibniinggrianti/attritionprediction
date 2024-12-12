@@ -19,7 +19,7 @@ warnings.filterwarnings('ignore')
 data = pd.read_csv("https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv")  # Replace with your actual CSV file name
 
  # Visualization: Total Employees by TotalWorkingYearsGroup
-    if "TotalWorkingYearsGroup" in data.columns:
+    if "TotalWorkingYears" in data.columns:
         st.write("### Employees by Total Working Years Group")
         value_1 = data["TotalWorkingYearsGroup"].value_counts()
         fig, ax = plt.subplots(figsize=(10, 6))
