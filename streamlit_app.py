@@ -90,7 +90,7 @@ with st.expander('Data Visualization'):
             sns.barplot(x=value_2.index, y=value_2.values, palette=["#D4A1E7", "#E7A1A1"], ax=ax)
             for index, value in enumerate(value_2):
                 ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", 
-                        size=15, fontweight="black")
+                        size=10, fontweight="black")
             st.pyplot(fig)
           
     else:
