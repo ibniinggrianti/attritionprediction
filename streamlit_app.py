@@ -16,7 +16,6 @@ st.write("Is your job worth keeping? Should you stay? Or just leave? Let's try!"
 data = pd.read_csv("https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv")  # Replace with your actual CSV file name
 
 with st.expander('Data Visualization'):
-    st.write("This is detail visualization on every feature.")
         
     if "Attrition" in data.columns:
         attrition_rate = data["Attrition"].value_counts()
@@ -58,6 +57,42 @@ with st.expander('Data Visualization'):
           
     else:
         st.info("Please upload a CSV file to start the analysis.")
-    
-    st.write("Employees Distribution by Gender.")
+    if "Gender" in data.columns and "Attrition" in data.columns:
+        gender_attrition = data["Gender"].value_counts()
+
+        # Creating two columns for side-by-side plots
+        col1, col2 = st.columns(2)
+
+        # Pie chart for gender distribution in the first column
+        with col1:
+            st.info("### Employees Distribution by Gender")
+            fig, ax = plt.subplots(figsize=(6, 6))
+            ax.pie(
+                gender_attrition, 
+                autopct="%.0f%%", 
+                labels=gender_attrition.index, 
+                textprops={"fontweight": "black", "size": 20},
+                explode=[0, 0.1], 
+                startangle=90,
+                colors=["#ffb563", "#FFC0CB"]
+            )
+            st.pyplot(fig)
+
+        # Bar plot for attrition rate by gender in the second column
+        with col2:
+            st.info("### Employee Attrition Rate by Gender")
+            new_df = data[data["Attrition"] == "Yes"]
+            value_1 = data["Gender"].value_counts()
+            value_2 = new_df["Gender"].value_counts()
+            attrition_rate = np.floor((value_2 / value_1) * 100).values
+            
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.barplot(x=value_2.index, y=value_2.values, palette=["#D4A1E7", "#E7A1A1"], ax=ax)
+            for index, value in enumerate(value_2):
+                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", 
+                        size=15, fontweight="black")
+            st.pyplot(fig)
+          
+    else:
+        st.info("Please upload a CSV file to start the analysis.")
 
