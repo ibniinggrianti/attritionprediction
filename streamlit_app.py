@@ -697,6 +697,10 @@ with st.sidebar:
   st.header('Input Features')
   gender = st.selectbox('Gender', ('Male', 'Female'))
   
+  options = ["Low", "Medium", "High", "Very High"]
+  selection = st.pills("Relationship Satisfaction", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+  
 
 
 
