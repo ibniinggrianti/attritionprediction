@@ -25,7 +25,7 @@ if "Attrition" in data.columns:
         # Bar Plot in the first column
         with col1:
             st.info("### Employee Attrition Counts")
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(4, 4))
             sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
             #ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
 
