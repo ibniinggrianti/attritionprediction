@@ -703,6 +703,10 @@ with st.sidebar:
   selection = st.pills("Age", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
 
+  options = ["Single", "Married", "Divorced"]
+  selection = st.pills("Marital Status", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+  
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
   selection = st.pills("Education", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
@@ -711,8 +715,16 @@ with st.sidebar:
   selection = st.pills("Education FIeld", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
 
-  options = ["Rsearch & Development", "Sales Department", "Human Resources"]
+  options = ["Research & Development", "Sales Department", "Human Resources"]
   selection = st.pills("Department", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+
+  options = ["Sales Executive", "Research Scientist", "Laboratory Technician", "Manufacturing Director", "Healthcare Representative", "Manager", "Sales Representative", "Research Director", "Human Resources"]
+  selection = st.pills("Job Role", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+
+  options = ["Entry Level", "Junior Level", "Mid Level", "Senior Level", "Executive Level"]
+  selection = st.pills("Job Level", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
   
   options = ["Low", "Medium", "High", "Very High"]
