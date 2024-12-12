@@ -7,7 +7,7 @@ import seaborn as sns
 st.title('Attrition Prediction')
 
 st.subheader("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
-st.write("You can see bellow for more information")
+st.write("You can see below for more information")
 
 #with st.expander('Data'):
   #df = pd.read_csv('https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv')
@@ -696,6 +696,22 @@ with st.expander('Statistics by Job'):
 with st.sidebar:
   st.header('Input Features')
   gender = st.selectbox('Gender', ('Male', 'Female'))
+
+  options = ["20-30", "31-40", "41-50", "51-60"]
+  selection = st.pills("Age", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+
+  options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
+  selection = st.pills("Education", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+
+  options = ["Life Science", "Medical", "Marketing", "Technical Degree", "Other", "Human Resources"]
+  selection = st.pills("Education FIeld", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
+
+  options = ["Rsearch & Development", "Sales Department", "Human Resources"]
+  selection = st.pills("Department", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
   
   options = ["Low", "Medium", "High", "Very High"]
   selection = st.pills("Relationship Satisfaction", options, selection_mode="single")
