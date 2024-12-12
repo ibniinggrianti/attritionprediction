@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.title('Attrition Prediction')
 
-st.subtitle("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
+st.subheader("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
 st.write("You can see bellow or more information")
 
 #with st.expander('Data'):
