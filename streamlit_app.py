@@ -22,7 +22,7 @@ if "Attrition" in data.columns:
 
         fig, ax = plt.subplots(figsize=(12, 1))
         sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
-        ax.set_title("Employee Attrition Counts", fontweight="black", size=15, pad=15)
+        ax.set_title("Employee Attrition Counts", fontweight="black", size=5, pad=5)
 
         # Adding value annotations to the bars
         for i, v in enumerate(attrition_rate.values):
