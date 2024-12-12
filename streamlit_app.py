@@ -27,7 +27,7 @@ if "Attrition" in data.columns:
             st.write("### Employee Attrition Counts")
             fig, ax = plt.subplots(figsize=(8, 6))
             sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
-            ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
+            #ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
 
             # Adding value annotations to the bars
             for i, v in enumerate(attrition_rate.values):
@@ -38,19 +38,19 @@ if "Attrition" in data.columns:
         # Pie Chart in the second column
         with col2:
             st.write("### Employee Attrition Rate")
-            fig, ax = plt.subplots(figsize=(8, 8))
+            fig, ax = plt.subplots(figsize=(6, 6))
             ax.pie(
                 attrition_rate, 
                 labels=["No", "Yes"], 
                 autopct="%.2f%%", 
-                textprops={"fontweight": "black", "size": 15},
+                textprops={"fontweight": "black", "size": 18},
                 colors=["#1d7874", "#AC1F29"],
                 explode=[0, 0.1], 
                 startangle=90
             )
             center_circle = plt.Circle((0, 0), 0.3, fc='white')
             fig.gca().add_artist(center_circle)
-            ax.set_title("Employee Attrition Rate", fontweight="black", size=20, pad=10)
+            #ax.set_title("Employee Attrition Rate", fontweight="black", size=20, pad=10)
 
             st.pyplot(fig)
 
