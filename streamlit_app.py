@@ -572,42 +572,42 @@ with st.expander('Statistics by Job'):
         st.info("Please upload a CSV file to start the analysis.")
       
     if "OverTime" in data.columns and "Attrition" in data.columns:
-    # Create two columns for side-by-side plots
-    col1, col2 = st.columns(2)
-
-    # Visualization for Employees by OverTime (Pie chart)
-    with col1:
-        st.info("### Employees by OverTime")
-        fig, ax = plt.subplots(figsize=(6, 6))
-        value_1 = data["OverTime"].value_counts()
-        ax.pie(
-            value_1.values,
-            labels=value_1.index,
-            autopct="%.1f%%",
-            pctdistance=0.75,
-            startangle=90,
-            colors=["#ffb563", "#FFC0CB"],
-            textprops={"fontweight": "black", "size": 15}
-        )
-        # Add a white circle at the center to make it a donut chart
-        center_circle = plt.Circle((0, 0), 0.4, fc='white')
-        fig.gca().add_artist(center_circle)
-        st.pyplot(fig)
-
-    # Visualization for Attrition Rate by OverTime (Bar plot)
-    with col2:
-        st.info("### Attrition Rate by OverTime")
-        new_df = data[data["Attrition"] == "Yes"]
-        value_2 = new_df["OverTime"].value_counts()
-        attrition_rate = np.floor((value_2 / value_1) * 100).values
-        fig, ax = plt.subplots(figsize=(5, 4))
-        sns.barplot(x=value_2.index.tolist(), y=value_2.values, palette=["#D4A1E7", "#E7A1A1"], ax=ax)
+            # Create two columns for side-by-side plots
+            col1, col2 = st.columns(2)
         
-        # Add text annotations for each bar
-        for index, value in enumerate(value_2):
-            ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=15, fontweight="black")
+            # Visualization for Employees by OverTime (Pie chart)
+            with col1:
+                st.info("### Employees by OverTime")
+                fig, ax = plt.subplots(figsize=(6, 6))
+                value_1 = data["OverTime"].value_counts()
+                ax.pie(
+                    value_1.values,
+                    labels=value_1.index,
+                    autopct="%.1f%%",
+                    pctdistance=0.75,
+                    startangle=90,
+                    colors=["#ffb563", "#FFC0CB"],
+                    textprops={"fontweight": "black", "size": 15}
+                )
+                # Add a white circle at the center to make it a donut chart
+                center_circle = plt.Circle((0, 0), 0.4, fc='white')
+                fig.gca().add_artist(center_circle)
+                st.pyplot(fig)
         
-        st.pyplot(fig)
+            # Visualization for Attrition Rate by OverTime (Bar plot)
+            with col2:
+                st.info("### Attrition Rate by OverTime")
+                new_df = data[data["Attrition"] == "Yes"]
+                value_2 = new_df["OverTime"].value_counts()
+                attrition_rate = np.floor((value_2 / value_1) * 100).values
+                fig, ax = plt.subplots(figsize=(5, 4))
+                sns.barplot(x=value_2.index.tolist(), y=value_2.values, palette=["#D4A1E7", "#E7A1A1"], ax=ax)
+                
+                # Add text annotations for each bar
+                for index, value in enumerate(value_2):
+                    ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=15, fontweight="black")
+                
+                st.pyplot(fig)
 
     else:
         st.info("Please upload a CSV file to start the analysis.")
