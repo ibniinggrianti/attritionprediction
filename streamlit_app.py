@@ -15,7 +15,7 @@ st.write("Is your job worth keeping? Should you stay? Or just leave? Let's try!"
 # Load dataset (Ensure the CSV file is in the correct location)
 data = pd.read_csv("https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv")  # Replace with your actual CSV file name
 
-with st.expander('Data Visualization'):        
+with st.expander('Overall Statistics'):        
     if "Attrition" in data.columns:
         attrition_rate = data["Attrition"].value_counts()
           
@@ -57,7 +57,7 @@ with st.expander('Data Visualization'):
     else:
         st.info("Please upload a CSV file to start the analysis.")
 
-with st.expander('Data Visualization by Personal Data'):
+with st.expander('Statistics by Personal Data'):
     if "Gender" in data.columns and "Attrition" in data.columns:
         gender_attrition = data["Gender"].value_counts()
 
@@ -160,5 +160,5 @@ with st.expander('Data Visualization by Personal Data'):
     else:
         st.info("Please upload a CSV file to start the analysis.")
       
-with st.expander('Data Visualization by Job'):
+with st.expander('Statistics by Job'):
 
