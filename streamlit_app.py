@@ -159,4 +159,8 @@ with st.expander('Data Visualization by Personal Data'):
 
     else:
         st.info("Please upload a CSV file to start the analysis.")
-
+      
+with st.expander('Data Visualization by Education'):
+with st.expander('Data Visualization by Company'):
+with st.expander('Data Visualization by Department'):
+with st.expander('Data Visualization by Individual'):
