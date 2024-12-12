@@ -170,17 +170,17 @@ with st.expander('Statistics by Employee Detail'):
         with col1:
             st.info("### Employees by Department")
             value_1 = data["Department"].value_counts()
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(6, 4))
             sns.barplot(
                 x=value_1.index, 
                 y=value_1.values, 
                 palette=["#FFA07A", "#D4A1E7", "#FFC0CB"], 
                 ax=ax
             )
-            ax.set_title("Employees by Department", fontweight="black", size=20, pad=20)
+            #ax.set_title("Employees by Department", fontweight="black", size=20, pad=20)
             # Add value annotations on the bars
             for index, value in enumerate(value_1.values):
-                ax.text(index, value, str(value), ha="center", va="bottom", fontweight="black", size=15)
+                ax.text(index, value, str(value), ha="center", va="bottom", fontweight="black", size=10)
             st.pyplot(fig)
 
         # Visualization for Employee Attrition Rate by Department (Bar Plot)
@@ -189,18 +189,18 @@ with st.expander('Statistics by Employee Detail'):
             new_df = data[data["Attrition"] == "Yes"]
             value_2 = new_df["Department"].value_counts()
             attrition_rate = np.floor((value_2 / value_1) * 100).values
-            fig, ax = plt.subplots(figsize=(6, 6))
+            fig, ax = plt.subplots(figsize=(6, 4))
             sns.barplot(
                 x=value_2.index, 
                 y=value_2.values, 
                 palette=["#11264e", "#6faea4", "#FEE08B"], 
                 ax=ax
             )
-            ax.set_title("Attrition Rate by Department", fontweight="black", size=20, pad=20)
+            #ax.set_title("Attrition Rate by Department", fontweight="black", size=20, pad=20)
             # Add value and percentage annotations on the bars
             for index, value in enumerate(value_2):
                 ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", 
-                        fontweight="black", size=15)
+                        fontweight="black", size=10)
             st.pyplot(fig)
   else:
        st.info("Please upload a CSV file to start the analysis.")
