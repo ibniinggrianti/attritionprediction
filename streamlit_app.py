@@ -11,9 +11,6 @@ st.info("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
 #with st.expander('Data'):
   #df = pd.read_csv('https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv')
   #df
-# Ignore warnings
-warnings.filterwarnings('always')
-warnings.filterwarnings('ignore')
 
 # Load dataset (Ensure the CSV file is in the correct location)
 data = pd.read_csv("https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv")  # Replace with your actual CSV file name
