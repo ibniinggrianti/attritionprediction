@@ -695,6 +695,8 @@ with st.expander('Statistics by Job'):
       
 with st.sidebar:
   st.header('Input Features')
+  gender = st.selectbox('Gender', ('Male', 'Female'))
+  
 
 
 
