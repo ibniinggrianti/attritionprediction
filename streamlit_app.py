@@ -339,8 +339,8 @@ with st.expander('Statistics by Employee Detail'):
                     ha="center", va="bottom", fontweight="black", size=10
                 )
             st.pyplot(fig)
-    else:
-        st.info("Please upload a dataset with 'JobRole' and 'Attrition' columns to view visualizations.")
+  else:
+      st.info("Please upload a dataset with 'JobRole' and 'Attrition' columns to view visualizations.")
       
 with st.expander('Statistics by Job'):
     if "BusinessTravel" in data.columns and "Attrition" in data.columns:
