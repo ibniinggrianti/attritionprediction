@@ -95,4 +95,26 @@ with st.expander('Data Visualization'):
           
     else:
         st.info("Please upload a CSV file to start the analysis.")
+    if "Age" in data.columns and "Attrition" in data.columns:
+        # Create two columns for side-by-side plots
+        col1, col2 = st.columns(2)
+
+        # Visualization for Employee Distribution by Age
+        with col1:
+            st.info("### Employee Distribution by Age")
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.histplot(x="Age", hue="Attrition", data=data, kde=True, palette=["#11264e", "#6faea4"], ax=ax)
+            ax.set_title("Employee Distribution by Age", fontweight="black", size=20, pad=10)
+            st.pyplot(fig)
+
+        # Visualization for Employee Distribution by Age & Attrition
+        with col2:
+            st.info("### Employee Distribution by Age & Attrition")
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.boxplot(x="Attrition", y="Age", data=data, palette=["#D4A1E7", "#6faea4"], ax=ax)
+            ax.set_title("Employee Distribution by Age & Attrition", fontweight="black", size=20, pad=10)
+            st.pyplot(fig)
+    
+    else:
+        st.info("Please upload a CSV file to start the analysis.")
 
