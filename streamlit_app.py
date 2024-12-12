@@ -19,8 +19,8 @@ with st.expander('Data Visualization'):
     st.write("This is detail visualization on every feature.")
     
     # Employee Attrition Counts Visualization
-    with st.expander("Employee Attrition Rate"):
-        st.write("Detail visualization.")
+    # with st.expander("Employee Attrition Rate"):
+        # st.write("Detail visualization.")
         
         if "Attrition" in data.columns:
             attrition_rate = data["Attrition"].value_counts()
@@ -63,4 +63,4 @@ with st.expander('Data Visualization'):
         else:
             st.info("Please upload a CSV file to start the analysis.")
     
-    st.write("Employees Distribution by Gender.")
+    # st.write("Employees Distribution by Gender.")
