@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.title('Attrition Prediction')
 
-st.info("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
+st.write("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
 
 #with st.expander('Data'):
   #df = pd.read_csv('https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv')
@@ -24,7 +24,7 @@ if "Attrition" in data.columns:
 
         # Bar Plot in the first column
         with col1:
-            st.write("### Employee Attrition Counts")
+            st.info("### Employee Attrition Counts")
             fig, ax = plt.subplots(figsize=(8, 6))
             sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
             #ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
@@ -37,7 +37,7 @@ if "Attrition" in data.columns:
 
         # Pie Chart in the second column
         with col2:
-            st.write("### Employee Attrition Rate")
+            st.info("### Employee Attrition Rate")
             fig, ax = plt.subplots(figsize=(6, 6))
             ax.pie(
                 attrition_rate, 
