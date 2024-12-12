@@ -7,7 +7,7 @@ import seaborn as sns
 st.title('Attrition Prediction')
 
 st.subheader("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
-st.write("You can see bellow or more information")
+st.write("You can see bellow for more information")
 
 #with st.expander('Data'):
   #df = pd.read_csv('https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv')
