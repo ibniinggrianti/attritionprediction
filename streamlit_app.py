@@ -59,6 +59,7 @@ with st.expander('Data Visualization'):
         st.info("Please upload a CSV file to start the analysis.")
 
   with st.expander('Data Visualization by Personal Data'):
+    
     if "Gender" in data.columns and "Attrition" in data.columns:
         gender_attrition = data["Gender"].value_counts()
 
