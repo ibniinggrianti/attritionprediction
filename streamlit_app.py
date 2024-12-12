@@ -247,6 +247,6 @@ with st.expander('Statistics by Job'):
                 ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", ha="center", va="bottom", size=10, fontweight="black")
             st.pyplot(fig)
 
-  else:
-      st.info("Please upload a CSV file to start the analysis.")
+else:
+    st.info("Please upload a CSV file to start the analysis.")
 
