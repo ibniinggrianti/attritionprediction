@@ -15,6 +15,7 @@ st.write("Is your job worth keeping? Should you stay? Or just leave? Let's try!"
 # Load dataset (Ensure the CSV file is in the correct location)
 data = pd.read_csv("https://raw.githubusercontent.com/ibniinggrianti/attritionprediction/refs/heads/master/IBM-HR-Analytics-Employee-Attrition-and-Performance-Revised.csv")  # Replace with your actual CSV file name
 
+with st.expander('Data Visualization'):
 # Employee Attrition Counts Visualization
 if "Attrition" in data.columns:
         attrition_rate = data["Attrition"].value_counts()
