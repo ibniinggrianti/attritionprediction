@@ -727,7 +727,7 @@ with st.sidebar:
   selection = st.pills("Job Level", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
   
-  options = ["Non-Travel", "Travel_Rarely", "Travel_Frequently"]
+  options = ["Non-Travel", "Travel Rarely", "Travel Frequently"]
   selection = st.pills("Business Travel", options, selection_mode="single")
   st.markdown(f"Your selected options: {selection}.")
   
