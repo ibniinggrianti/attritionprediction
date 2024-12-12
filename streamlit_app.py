@@ -162,7 +162,7 @@ with st.expander('Statistics by Personal Data'):
         st.info("Please upload a CSV file to start the analysis.")
       
 with st.expander('Statistics by Job'):
-  if "BusinessTravel" in data.columns and "Attrition" in data.columns:
+    if "BusinessTravel" in data.columns and "Attrition" in data.columns:
         # Create two columns for side-by-side plots
         col1, col2 = st.columns(2)
 
