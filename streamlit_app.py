@@ -693,7 +693,7 @@ with st.expander('Statistics by Job'):
     else:
         st.info("Please upload a CSV file to start the analysis.")
       
-with st.sidebar
+with st.sidebar:
   st.header('Input Features')
 
 
