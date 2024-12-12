@@ -210,7 +210,8 @@ with st.expander('Statistics by Job'):
     else:
         st.info("Please upload a CSV file to start the analysis.")if "RelationshipSatisfaction" in data.columns and "Attrition" in data.columns:
         # Create two columns for side-by-side plots
-        col1, col2 = st.columns(2)
+    if "BusinessTravel" in data.columns and "Attrition" in data.columns:
+      col1, col2 = st.columns(2)
 
         # Visualization for Employees by Relationship Satisfaction (Pie chart)
         with col1:
