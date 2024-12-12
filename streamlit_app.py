@@ -31,7 +31,7 @@ if "Attrition" in data.columns:
 
             # Adding value annotations to the bars
             for i, v in enumerate(attrition_rate.values):
-                ax.text(i, v, v, ha="center", fontweight='black', fontsize=15)
+                ax.text(i, v, v, ha="center", fontweight='black', fontsize=10)
 
             st.pyplot(fig)
 
