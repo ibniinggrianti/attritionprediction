@@ -695,7 +695,9 @@ with st.expander('Statistics by Job'):
       
 with st.sidebar:
   st.header('Input Features')
-  gender = st.selectbox('Gender', ('Male', 'Female'))
+  options = ["Male", "Female"]
+  selection = st.pills("Gender", options, selection_mode="single")
+  st.markdown(f"Your selected options: {selection}.")
 
   options = ["20-30", "31-40", "41-50", "51-60"]
   selection = st.pills("Age", options, selection_mode="single")
