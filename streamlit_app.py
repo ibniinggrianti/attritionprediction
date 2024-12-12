@@ -20,19 +20,19 @@ if "Attrition" in data.columns:
         st.write("### Employee Attrition Counts")
         attrition_rate = data["Attrition"].value_counts()
 
-        fig, ax = plt.subplots(figsize=(5, 5))
+        fig, ax = plt.subplots(figsize=(3, 3))
         sns.barplot(x=attrition_rate.index, y=attrition_rate.values, palette=["#1d7874", "#8B0000"], ax=ax)
         #ax.set_title("Employee Attrition Counts", fontweight="black", size=20, pad=20)
 
         # Adding value annotations to the bars
         for i, v in enumerate(attrition_rate.values):
-            ax.text(i, v, v, ha="center", fontweight='black', fontsize=20)
+            ax.text(i, v, v, ha="center", fontweight='black', fontsize=5)
 
         st.pyplot(fig)
 
         # Employee Attrition Rate Visualization (Pie Chart)
         st.write("### Employee Attrition Rate")
-        fig, ax = plt.subplots(figsize=(3, 3))
+        fig, ax = plt.subplots(figsize=(1, 1))
         ax.pie(
             attrition_rate, 
             labels=["No", "Yes"], 
