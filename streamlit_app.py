@@ -161,6 +161,51 @@ with st.expander('Statistics by Personal Data'):
     else:
         st.info("Please upload a CSV file to start the analysis.")
       
+    if "Education" in data.columns and "Attrition" in data.columns:
+        # Create two columns for side-by-side plots
+        col1, col2 = st.columns(2)
+
+        # Visualization for Employees by Education (Bar Plot)
+        with col1:
+            st.info("### Employees Distribution by Education")
+            value_1 = data["Education"].value_counts()
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.barplot(
+                x=value_1.index, 
+                y=value_1.values, 
+                order=value_1.index, 
+                palette=["#FFA07A", "#D4A1E7", "#FFC0CB", "#87CEFA"], 
+                ax=ax
+            )
+            ax.set_title("Employees Distribution by Education", fontweight="black", size=20, pad=15)
+            # Add value annotations on the bars
+            for index, value in enumerate(value_1.values):
+                ax.text(index, value, value, ha="center", va="bottom", fontweight="black", size=15)
+            st.pyplot(fig)
+
+        # Visualization for Employee Attrition by Education (Bar Plot)
+        with col2:
+            st.info("### Employee Attrition by Education")
+            new_df = data[data["Attrition"] == "Yes"]
+            value_2 = new_df["Education"].value_counts()
+            attrition_rate = np.floor((value_2 / value_1) * 100).values
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.barplot(
+                x=value_2.index, 
+                y=value_2.values, 
+                order=value_2.index, 
+                palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], 
+                ax=ax
+            )
+            ax.set_title("Employee Attrition by Education", fontweight="black", size=18, pad=15)
+            # Add value and percentage annotations on the bars
+            for index, value in enumerate(value_2.values):
+                ax.text(index, value, f"{value} ({int(attrition_rate[index])}%)", 
+                        ha="center", va="bottom", fontweight="black", size=13)
+            st.pyplot(fig)
+    else:
+        st.info("Please upload a CSV file to start the analysis.")
+      
 with st.expander('Statistics by Employee Detail'):
   if "Department" in data.columns and "Attrition" in data.columns:
         # Create two columns for side-by-side plots
