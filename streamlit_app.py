@@ -341,6 +341,55 @@ with st.expander('Statistics by Employee Detail'):
             st.pyplot(fig)
   else:
       st.info("Please upload a dataset with 'JobRole' and 'Attrition' columns to view visualizations.")
+  if "JobLevel" in data.columns and "Attrition" in data.columns:
+        # Create two columns for side-by-side plots
+        col1, col2 = st.columns(2)
+
+        # Visualization for Employees by Job Level (Pie Chart)
+        with col1:
+            st.info("### Employees by Job Level")
+            value_1 = data["JobLevel"].value_counts()
+            fig, ax = plt.subplots(figsize=(6, 6))
+            wedges, texts, autotexts = ax.pie(
+                value_1.values, 
+                labels=value_1.index, 
+                autopct="%.1f%%", 
+                pctdistance=0.8, 
+                startangle=90, 
+                colors=['#FF6D8C', '#FF8C94', '#FFAC9B', '#FFCBA4', "#FFD8B1"], 
+                textprops={"fontweight": "black", "size": 10}
+            )
+            center_circle = plt.Circle((0, 0), 0.4, fc='white')
+            plt.gca().add_artist(center_circle)
+            #ax.set_title("Employees by Job Level", fontweight="black", size=16, pad=15)
+            st.pyplot(fig)
+
+        # Visualization for Attrition Rate by Job Level (Bar Plot)
+        with col2:
+            st.info("### Attrition Rate by Job Level")
+            new_df = data[data["Attrition"] == "Yes"]
+            value_2 = new_df["JobLevel"].value_counts()
+            attrition_rate = np.floor((value_2 / value_1) * 100).values
+            fig, ax = plt.subplots(figsize=(6, 5))
+            sns.barplot(
+                x=value_2.index, 
+                y=value_2.values, 
+                palette=["#11264e", "#6faea4", "#FEE08B", "#D4A1E7", "#E7A1A1"], 
+                ax=ax
+            )
+            #ax.set_title("Attrition Rate by Job Level", fontweight="black", size=16, pad=15)
+            # Add percentage annotations to bars
+            for index, value in enumerate(value_2.values):
+                ax.text(
+                    index, value, 
+                    f"{value} ({int(attrition_rate[index])}%)", 
+                    ha="center", va="bottom", 
+                    fontweight="black", size=10
+                )
+            st.pyplot(fig)
+
+    else:
+        st.info("Please upload a dataset containing 'JobLevel' and 'Attrition' columns to display visualizations.")
       
 with st.expander('Statistics by Job'):
     if "BusinessTravel" in data.columns and "Attrition" in data.columns:
