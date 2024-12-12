@@ -58,6 +58,6 @@ with st.expander('Data Visualization'):
               
                 st.pyplot(fig)
               
-     else:
+    else:
            st.info("Please upload a CSV file to start the analysis.")
   st.write("Employees Distribution by Gender.")
