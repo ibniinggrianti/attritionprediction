@@ -759,13 +759,14 @@ categorical_columns = ['Gender', 'Department', 'EducationField']  # Replace with
 label_encoders = {col: LabelEncoder() for col in categorical_columns}
 
 for col in categorical_columns:
-    data[col] = label_encoders[col].fit_transform(data[col])
+    if col in data.columns:
+        data[col] = label_encoders[col].fit_transform(data[col])
 
 # Ensure no missing values
 data.fillna(method='ffill', inplace=True)
 
 # Split the data into training and testing sets
-X = data.drop(columns=['Gender', 'Department', 'EducationField'])  # Features
+X = data.drop(columns=['Attrition'])  # Features
 y = data['Attrition']  # Target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
