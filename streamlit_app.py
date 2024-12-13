@@ -759,9 +759,9 @@ with st.sidebar:
   selection = st.pills("Performance Rating", options, selection_mode="single")
   st.markdown(f"Your selected option: {selection}.")
 
-  options = ["Good", "Best", "Better", "Bad"]
-  selection = st.pills("Work Life Balance", options, selection_mode="single")
-  st.markdown(f"Your selected option: {selection}.")
+  #options = ["Good", "Best", "Better", "Bad"]
+  #selection = st.pills("Work Life Balance", options, selection_mode="single")
+  #st.markdown(f"Your selected option: {selection}.")
 
 # DataFrame for the input features
 data = {
