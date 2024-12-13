@@ -706,12 +706,12 @@ with st.sidebar:
   st.write(f"Your selected option: {Age}.")
 
   Gender = ["Male", "Female"]
-  Gender = st.pills("Gender", Gender, selection_mode="single")
-  st.markdown(f"Your selected option: {Gender}.")
+  selection = st.pills("Gender", Gender, selection_mode="single")
+  st.markdown(f"Your selected option: {selection}.")
 
   MaritalStatus = ["Single", "Married", "Divorced"]
-  MaritalStatus = st.pills("Marital Status", MaritalStatus, selection_mode="single")
-  st.markdown(f"Your selected option: {MaritalStatus}.")
+  selection = st.pills("Marital Status", MaritalStatus, selection_mode="single")
+  st.markdown(f"Your selected option: {selection}.")
   
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
   selection = st.pills("Education", options, selection_mode="single")
