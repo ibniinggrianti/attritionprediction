@@ -708,15 +708,15 @@ with st.sidebar:
   #gender = st.selectbox("Gender", ["Male", "Female"])
   #marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
 
-  Gender_options = ["Male", "Female"]
-  selected_gender = st.pills("Gender", Gender_options, selection_mode="single")
-  Gender = selected_gender[0] if selected_gender else None  # Handle empty selection
-  st.markdown(f"Your selected Gender: {selected_gender}.")
+  #Gender_options = ["Male", "Female"]
+  #selected_gender = st.pills("Gender", Gender_options, selection_mode="single")
+  #Gender = selected_gender[0] if selected_gender else None  # Handle empty selection
+  #st.markdown(f"Your selected Gender: {selected_gender}.")
 
-  MaritalStatus_options = ["Single", "Married", "Divorced"]
-  selected_marital_status = st.pills("Marital Status", MaritalStatus_options, selection_mode="single")
-  MaritalStatus = selected_marital_status[0] if selected_marital_status else None  # Handle empty selection
-  st.markdown(f"Your selected Marital Status: {selected_marital_status}.")
+  #MaritalStatus_options = ["Single", "Married", "Divorced"]
+  #selected_marital_status = st.pills("Marital Status", MaritalStatus_options, selection_mode="single")
+  #MaritalStatus = selected_marital_status[0] if selected_marital_status else None  # Handle empty selection
+  #st.markdown(f"Your selected Marital Status: {selected_marital_status}.")
 
   #Gender = ["Male", "Female"]
   #selection = st.pills("Gender", Gender, selection_mode="single")
