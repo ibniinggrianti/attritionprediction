@@ -706,11 +706,13 @@ with st.sidebar:
   st.write(f"Your selected option: {Age}.")
 
   Gender_options = ["Male", "Female"]
-  selected_gender = st.radio("Gender", Gender_options)  # Use radio for single selection
+  selected_gender = st.pills("Gender", Gender_options, selection_mode="single")
+  Gender = selected_gender[0] if selected_gender else None  # Handle empty selection
   st.markdown(f"Your selected Gender: {selected_gender}.")
 
   MaritalStatus_options = ["Single", "Married", "Divorced"]
-  selected_marital_status = st.radio("Marital Status", MaritalStatus_options)  # Use radio for single selection
+  selected_marital_status = st.pills("Marital Status", MaritalStatus_options, selection_mode="single")
+  MaritalStatus = selected_marital_status[0] if selected_marital_status else None  # Handle empty selection
   st.markdown(f"Your selected Marital Status: {selected_marital_status}.")
 
   #Gender = ["Male", "Female"]
@@ -761,24 +763,21 @@ with st.sidebar:
   selection = st.pills("Work Life Balance", options, selection_mode="single")
   st.markdown(f"Your selected option: {selection}.")
 
-  # DataFrame for the input features
+# DataFrame for the input features
 data = {
-    'Age': [Age],  
-    'Gender': [selected_gender],
-    'MaritalStatus': [selected_marital_status]
+    'Age': [Age],
+    'Gender': [Gender],
+    'MaritalStatus': [MaritalStatus]
 }
 input_df = pd.DataFrame(data)
 
-# Combine the input data with the existing data (X must be predefined)
-try:
-    input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
+# Combine the input data with the existing data
+input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
 
-    # Display in Streamlit
-    with st.expander('Input Features'):
-        st.write('**Input Attrition (User Input Only):**')
-        st.dataframe(input_df)
+# Display in Streamlit
+with st.expander('Input Features'):
+    st.write('**Input Attrition (User Input Only):**')
+    st.dataframe(input_df)
 
-        st.write('**Combined Attrition Data (Input + Original Dataset):**')
-        st.dataframe(input_attrition)
-except NameError:
-    st.error("Error: The variable 'X' (existing dataset) is not defined.")
+    st.write('**Combined Attrition Data (Input + Original Dataset):**')
+    st.dataframe(input_attrition)
