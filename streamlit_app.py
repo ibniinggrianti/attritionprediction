@@ -752,13 +752,13 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
   # DataFrame for the input features
-data = {'Age': [Age],  # Make sure Age, Gender, and MaritalStatus are properly defined
-        'Gender': [Gender],
-        'MaritalStatus': [MaritalStatus]}
-input_df = pd.DataFrame(data)
+  data = {'Age': [Age],  # Make sure Age, Gender, and MaritalStatus are properly defined
+          'Gender': [Gender],
+          'MaritalStatus': [MaritalStatus]}
+  input_df = pd.DataFrame(data)
 
-# Combine the input data with the existing data
-input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
+  # Combine the input data with the existing data
+  input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
 
 # Display in Streamlit
 with st.expander('Input Features'):
