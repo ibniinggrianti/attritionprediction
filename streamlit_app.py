@@ -751,16 +751,21 @@ with st.sidebar:
   selection = st.pills("Work Life Balance", options, selection_mode="single")
   st.markdown(f"Your selected option: {selection}.")
 
-  #DataFrame for the input features
-  data = {'Age': Age,
-          'Gender': Gender,
-          'MaritalStatus': MaritalStatus}
-  input_df = pd.DataFrame(data, index=[0])
-  input_attrition = pd.concat([input_df, X], axis=0)
+  # DataFrame for the input features
+data = {'Age': [Age],  # Make sure Age, Gender, and MaritalStatus are properly defined
+        'Gender': [Gender],
+        'MaritalStatus': [MaritalStatus]}
+input_df = pd.DataFrame(data)
 
+# Combine the input data with the existing data
+input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
+
+# Display in Streamlit
 with st.expander('Input Features'):
-  st.write('**Input Attrition**')
-  input_df
-  st.write('**Combined ATtrition Data**')
-  input_attrition
+    st.write('**Input Attrition (User Input Only):**')
+    st.dataframe(input_df)  # Explicitly show the input DataFrame
+
+    st.write('**Combined Attrition Data (Input + Original Dataset):**')
+    st.dataframe(input_attrition)  # Explicitly show the combined DataFrame
+
 
