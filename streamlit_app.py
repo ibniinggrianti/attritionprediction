@@ -752,7 +752,7 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
 # Label encoding for the target variable (Attrition)
-data['Attrition'] = data['Attrition'].map({'Yes': 1, 'No': 0})
+#data['Attrition'] = data['Attrition'].map({'Yes': 1, 'No': 0})
 
 # Convert categorical columns to numeric (example: encoding 'Gender')
 categorical_columns = ['Gender', 'Department', 'EducationField']  # Replace with your dataset's categorical columns
