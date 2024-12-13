@@ -695,56 +695,56 @@ with st.expander('Statistics by Job'):
       
 with st.sidebar:
   st.header('Input Features')
-  age = st.slider("Select Age", min_value=18, max_value=60, value=25)
-  st.write(f"The selected age is {age}.")
+  age = st.slider("Age", min_value=18, max_value=60, value=25)
+  st.write(f"Your selected option: {age}.")
 
   options = ["Male", "Female"]
   selection = st.pills("Gender", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Single", "Married", "Divorced"]
   selection = st.pills("Marital Status", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
   
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
   selection = st.pills("Education", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Life Science", "Medical", "Marketing", "Technical Degree", "Other", "Human Resources"]
   selection = st.pills("Education FIeld", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Research & Development", "Sales Department", "Human Resources"]
   selection = st.pills("Department", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Sales Executive", "Research Scientist", "Laboratory Technician", "Manufacturing Director", "Healthcare Representative", "Manager", "Sales Representative", "Research Director", "Human Resources"]
   selection = st.pills("Job Role", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Entry Level", "Junior Level", "Mid Level", "Senior Level", "Executive Level"]
   selection = st.pills("Job Level", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
   
   options = ["Non-Travel", "Travel Rarely", "Travel Frequently"]
   selection = st.pills("Business Travel", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
   
   options = ["Low", "Medium", "High", "Very High"]
   selection = st.pills("Job Satisfaction", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
   
   options = ["Yes", "No"]
   selection = st.pills("Over Time", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Excellent", "Outstanding"]
   selection = st.pills("Performance Rating", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
   options = ["Good", "Best", "Better", "Bad"]
   selection = st.pills("Work Life Balance", options, selection_mode="single")
-  st.markdown(f"Your selected options: {selection}.")
+  st.markdown(f"Your selected option: {selection}.")
 
 
       
