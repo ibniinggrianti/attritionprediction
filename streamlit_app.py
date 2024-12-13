@@ -764,7 +764,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Create and train the SVM model
 model = make_pipeline(StandardScaler(), SVC(probability=True))  # SVM with scaling
-model.fit(X_train, y_train)
+#model.fit(X_train, y_train)
 
 # Test the model accuracy
 y_pred = model.predict(X_test)
