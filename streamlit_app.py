@@ -751,12 +751,12 @@ with st.sidebar:
   selection = st.pills("Work Life Balance", options, selection_mode="single")
   st.markdown(f"Your selected option: {selection}.")
 
-#DataFrame for the input features
-data = {'Age': Age,
-        'Gender': Gender,
-        'MaritalStatus': MaritalStatus}
-input_df = pd.DataFrame(data, index=[0])
-input_attrition = pd.concat([input_df, X], axis=0)
+  #DataFrame for the input features
+  data = {'Age': Age,
+          'Gender': Gender,
+          'MaritalStatus': MaritalStatus}
+  input_df = pd.DataFrame(data, index=[0])
+  input_attrition = pd.concat([input_df, X], axis=0)
 
 with st.expander('Input Features'):
   st.write('**Input Attrition**')
