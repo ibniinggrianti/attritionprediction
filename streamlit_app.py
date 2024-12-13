@@ -754,12 +754,19 @@ with st.sidebar:
 # Label encoding for the target variable (Attrition)
 data['Attrition'] = data['Attrition'].map({'Yes': 1, 'No': 0})
 
-# Selecting features for prediction
-features = ['JobSatisfaction', 'WorkLifeBalance', 'OverTime', 'PerformanceRating']  # Example features
-X = data[features]
-y = data['Attrition']
+# Convert categorical columns to numeric (example: encoding 'Gender')
+categorical_columns = ['Gender', 'Department', 'EducationField']  # Replace with your dataset's categorical columns
+label_encoders = {col: LabelEncoder() for col in categorical_columns}
+
+for col in categorical_columns:
+    data[col] = label_encoders[col].fit_transform(data[col])
+
+# Ensure no missing values
+data.fillna(method='ffill', inplace=True)
 
 # Split the data into training and testing sets
+X = data.drop(columns=['Gender', 'Department', 'EducationField'])  # Features
+y = data['Attrition']  # Target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Create and train the SVM model
