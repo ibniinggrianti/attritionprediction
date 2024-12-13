@@ -705,12 +705,12 @@ with st.sidebar:
   Age = st.slider("Age", min_value=18, max_value=60, value=25)
   st.write(f"Your selected option: {Age}.")
 
-  options = ["Male", "Female"]
-  Gender = st.pills("Gender", options, selection_mode="single")
+  Gender = ["Male", "Female"]
+  Gender = st.pills("Gender", Gender, selection_mode="single")
   st.markdown(f"Your selected option: {Gender}.")
 
-  options = ["Single", "Married", "Divorced"]
-  MaritalStatus = st.pills("Marital Status", options, selection_mode="single")
+  MaritalStatus = ["Single", "Married", "Divorced"]
+  MaritalStatus = st.pills("Marital Status", MaritalStatus, selection_mode="single")
   st.markdown(f"Your selected option: {MaritalStatus}.")
   
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
