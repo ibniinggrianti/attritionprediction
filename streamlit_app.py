@@ -708,8 +708,8 @@ with st.sidebar:
   st.markdown(f"Your selected option: {Gender}.")
 
   options = ["Single", "Married", "Divorced"]
-  maritalstatus = st.pills("Marital Status", options, selection_mode="single")
-  st.markdown(f"Your selected option: {selection}.")
+  MaritalStatus = st.pills("Marital Status", options, selection_mode="single")
+  st.markdown(f"Your selected option: {MaritalStatus}.")
   
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
   selection = st.pills("Education", options, selection_mode="single")
