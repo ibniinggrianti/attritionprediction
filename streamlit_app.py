@@ -752,7 +752,7 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
   # DataFrame for the input features
-  data = {'Age': [Age],  # Make sure Age, Gender, and MaritalStatus are properly defined
+  data = {'Age': [Age],  
           'Gender': [Gender],
           'MaritalStatus': [MaritalStatus]}
   input_df = pd.DataFrame(data)
@@ -762,10 +762,10 @@ with st.sidebar:
 
 # Display in Streamlit
 with st.expander('Input Features'):
-    st.write('**Input Attrition (User Input Only):**')
-    st.dataframe(input_df)  # Explicitly show the input DataFrame
+  st.write('**Input Attrition (User Input Only):**')
+  st.dataframe(input_df)  # Explicitly show the input DataFrame
 
-    st.write('**Combined Attrition Data (Input + Original Dataset):**')
-    st.dataframe(input_attrition)  # Explicitly show the combined DataFrame
+  st.write('**Combined Attrition Data (Input + Original Dataset):**')
+  st.dataframe(input_attrition)  # Explicitly show the combined DataFrame
 
 
