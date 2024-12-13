@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 
 st.title('Attrition Prediction')
 
@@ -746,6 +750,51 @@ with st.sidebar:
   selection = st.pills("Work Life Balance", options, selection_mode="single")
   st.markdown(f"Your selected option: {selection}.")
 
+# Label encoding for the target variable (Attrition)
+data['Attrition'] = data['Attrition'].map({'Yes': 1, 'No': 0})
+
+# Selecting features for prediction
+features = ['JobSatisfaction', 'WorkLifeBalance', 'OverTime', 'PerformanceRating']  # Example features
+X = data[features]
+y = data['Attrition']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train the SVM model
+model = make_pipeline(StandardScaler(), SVC(probability=True))  # SVM with scaling
+model.fit(X_train, y_train)
+
+# Test the model accuracy
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+st.write(f"Model Accuracy: {accuracy * 100:.2f}%")
+
+# Input form for user predictions
+st.title("Employee Attrition Prediction")
+st.write("Enter the employee details to predict if they will stay or leave the job.")
+
+# User input features
+job_satisfaction = st.slider("Job Satisfaction (1 to 4)", 1, 4)
+work_life_balance = st.slider("Work-Life Balance (1 to 4)", 1, 4)
+over_time = st.selectbox("OverTime", ["Yes", "No"])
+performance_rating = st.slider("Performance Rating (1 to 4)", 1, 4)
+
+# Convert OverTime to binary
+over_time = 1 if over_time == "Yes" else 0
+
+# Create the input data array for prediction
+input_data = np.array([[job_satisfaction, work_life_balance, over_time, performance_rating]])
+
+# Predict using the trained model
+prediction = model.predict(input_data)
+prediction_proba = model.predict_proba(input_data)[0][1]  # Probability of leaving (1)
+
+# Display the prediction
+if prediction == 1:
+    st.write(f"The employee is predicted to **leave** the job with a probability of {prediction_proba * 100:.2f}%.")
+else:
+    st.write(f"The employee is predicted to **stay** with the job with a probability of {(1 - prediction_proba) * 100:.2f}%.")
 
       
 
