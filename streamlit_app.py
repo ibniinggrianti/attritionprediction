@@ -752,5 +752,5 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
 #DataFrame for the input features
-data = {
+#data = {
 
