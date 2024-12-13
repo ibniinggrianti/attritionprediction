@@ -705,13 +705,21 @@ with st.sidebar:
   Age = st.slider("Age", min_value=18, max_value=60, value=25)
   st.write(f"Your selected option: {Age}.")
 
-  Gender = ["Male", "Female"]
-  selection = st.pills("Gender", Gender, selection_mode="single")
-  st.markdown(f"Your selected option: {selection}.")
+  Gender_options = ["Male", "Female"]
+  selected_gender = st.radio("Gender", Gender_options)  # Use radio for single selection
+  st.markdown(f"Your selected Gender: {selected_gender}.")
 
-  MaritalStatus = ["Single", "Married", "Divorced"]
-  selection = st.pills("Marital Status", MaritalStatus, selection_mode="single")
-  st.markdown(f"Your selected option: {selection}.")
+  MaritalStatus_options = ["Single", "Married", "Divorced"]
+  selected_marital_status = st.radio("Marital Status", MaritalStatus_options)  # Use radio for single selection
+  st.markdown(f"Your selected Marital Status: {selected_marital_status}.")
+
+  #Gender = ["Male", "Female"]
+  #selection = st.pills("Gender", Gender, selection_mode="single")
+  #st.markdown(f"Your selected option: {selection}.")
+
+  #MaritalStatus = ["Single", "Married", "Divorced"]
+  #selection = st.pills("Marital Status", MaritalStatus, selection_mode="single")
+  #st.markdown(f"Your selected option: {selection}.")
   
   options = ["Bachelor", "Master", "Doctor", "College", "Below College"]
   selection = st.pills("Education", options, selection_mode="single")
@@ -754,20 +762,23 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
   # DataFrame for the input features
-  data = {'Age': Age,  
-          'Gender': Gender,
-          'MaritalStatus': MaritalStatus}
-  input_df = pd.DataFrame(data)
+data = {
+    'Age': [Age],  
+    'Gender': [selected_gender],
+    'MaritalStatus': [selected_marital_status]
+}
+input_df = pd.DataFrame(data)
 
-  # Combine the input data with the existing data
-  input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
+# Combine the input data with the existing data (X must be predefined)
+try:
+    input_attrition = pd.concat([input_df, X], axis=0).reset_index(drop=True)
 
-# Display in Streamlit
-with st.expander('Input Features'):
-  st.write('**Input Attrition (User Input Only):**')
-  st.dataframe(input_df)  # Explicitly show the input DataFrame
+    # Display in Streamlit
+    with st.expander('Input Features'):
+        st.write('**Input Attrition (User Input Only):**')
+        st.dataframe(input_df)
 
-  st.write('**Combined Attrition Data (Input + Original Dataset):**')
-  st.dataframe(input_attrition)  # Explicitly show the combined DataFrame
-
-
+        st.write('**Combined Attrition Data (Input + Original Dataset):**')
+        st.dataframe(input_attrition)
+except NameError:
+    st.error("Error: The variable 'X' (existing dataset) is not defined.")
