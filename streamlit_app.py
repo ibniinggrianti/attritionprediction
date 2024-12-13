@@ -9,7 +9,7 @@ import seaborn as sns
 #from sklearn.preprocessing import StandardScaler
 #from sklearn.metrics import accuracy_score
 
-st.title('Attrition Prediction')
+#st.title('Attrition Prediction')
 
 st.subheader("Is your job worth keeping? Should you stay? Or just leave? Let's try!")
 st.write("You can see below for more information")
