@@ -705,8 +705,8 @@ with st.sidebar:
   Age = st.slider("Age", min_value=18, max_value=60, value=25)
   st.write(f"Your selected option: {Age}.")
 
-  gender = st.selectbox("Gender", ["Male", "Female"])
-  marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
+  #gender = st.selectbox("Gender", ["Male", "Female"])
+  #marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
 
   Gender_options = ["Male", "Female"]
   selected_gender = st.pills("Gender", Gender_options, selection_mode="single")
