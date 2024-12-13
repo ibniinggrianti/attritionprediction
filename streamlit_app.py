@@ -701,11 +701,11 @@ with st.expander('Statistics by Job'):
 with st.sidebar:
   st.header('Input Features')
   Age = st.slider("Age", min_value=18, max_value=60, value=25)
-  st.write(f"Your selected option: {age}.")
+  st.write(f"Your selected option: {Age}.")
 
   options = ["Male", "Female"]
   Gender = st.pills("Gender", options, selection_mode="single")
-  st.markdown(f"Your selected option: {selection}.")
+  st.markdown(f"Your selected option: {Gender}.")
 
   options = ["Single", "Married", "Divorced"]
   maritalstatus = st.pills("Marital Status", options, selection_mode="single")
