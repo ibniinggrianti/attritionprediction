@@ -752,9 +752,9 @@ with st.sidebar:
   st.markdown(f"Your selected option: {selection}.")
 
   # DataFrame for the input features
-  data = {'Age': [Age],  
-          'Gender': [Gender],
-          'MaritalStatus': [MaritalStatus]}
+  data = {'Age': Age,  
+          'Gender': Gender,
+          'MaritalStatus': MaritalStatus}
   input_df = pd.DataFrame(data)
 
   # Combine the input data with the existing data
