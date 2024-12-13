@@ -758,7 +758,7 @@ data = {'Age': Age,
 input_df = pd.DataFrame(data, index=[0])
 input_attrition = pd.concat([input_df, X], axis=0)
 
-with st.expamder('Input Features'):
+with st.expander('Input Features'):
   st.write('**Input Attrition**')
   input_df
   st.write('**Combined ATtrition Data**')
